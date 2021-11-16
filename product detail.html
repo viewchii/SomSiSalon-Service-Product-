@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="/SomSiSalon/static/CSS/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+.containerCover {
+  display:grid;
+  grid-template-columns: 100%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.containerDeliTab{
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 2fr;
+  grid-column-gap: 1em;
+  background-color: #F0D192;
+}
+
+.HeadingProduct {
+  position: absolute;
+  top: 40%;
+  left: 75%;
+  font-size: 3vw;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.SubHeadingProduct {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  font-size: 2vw;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+img.deli {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 2fr;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.DeliveryTab {
+  background-color: #f0d192;
+  width: 100%;
+  padding: 4vh;
+  color: black;
+}
+
+.DeliveryText1{
+  position: absolute;
+  top: 66.25%;
+  right: 75%;
+  font-size: 1.3vw;
+  width: 200px;
+  height: 100px;
+}
+
+.DeliveryText2{
+  position: absolute;
+  top: 66.25%;
+  right: 48%;
+  font-size: 1.3vw;
+  width: 200px;
+  height: 100px;
+}
+
+.DeliveryText3{
+  position: absolute;
+  top: 66.25%;
+  right: 10%;
+  font-size: 1.3vw;
+  width: 400px;
+  height: 100px;
+}
+
+img.thumbnail {
+    border:1px solid #9E9E9E;
+}
+
+img.thumbnail:hover {
+    border:1px solid black;
+}
+
+img.prod1 {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+img.prod1:hover {
+    border:1px solid black;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: inline-end;
+  width: 10%;
+}
+
+/* Create four equal columns that floats next to eachother */
+.column2 {
+  float: left;
+  width: 33.33%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  opacity: 100%;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 96.5%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  font-size: 20px;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  border:1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid black;
+  /*set the size of the result div:*/
+  width: 250px;
+  height: 250px;
+  position:absolute;
+  right:45%;
+}
+
+.btnZoom {
+  position: absolute;
+  left: 10%;
+  background-color: #d9984e; /* Yellow background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  font-style: Frank Ruhl Libre;
+  padding: 8px 10px; /* Some padding */
+  font-size: 14px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column3 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.checked {
+  color: #d9984e;
+}
+
+.btnsize {
+  background-color: #f6e4bf;
+  border: none;
+  color: black;
+  padding: 18px 22px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.btnsize:hover {
+  background-color: #f6e4bf;
+  color: black;
+}
+
+.btnsize:focus {
+  background-color: #f0d192;
+  color: black;
+  border: 1px solid #d9984e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #f0d192;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 85%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #d9984e;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  width: 85%;
+  background-color: #f6e4bf;
+}
+
+.DetailTable {
+  padding: 1em;
+  text-align: left;
+}
+
+/* Style buttons */
+.btnAddtoCart {
+  position: absolute;
+  top: 54.5em;
+  right: 10em;
+  background-color: #d9984e; /* Yellow background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  font-style: Frank Ruhl Libre;
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* The Popup (background) */
+.modalPopup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Popup Content/Box */
+.modal-content-Popup {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.closePopup {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closePopup:hover,
+.closePopup:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.headingRate {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.faRate {
+  font-size: 25px;
+}
+
+.checkedRate {
+  color: orange;
+}
+
+/* Three column layout */
+.sideRate {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.middleRate {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.rightRate {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.rowRate:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-containerRate {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.barRate-5 {width: 60%; height: 18px; background-color: #d9984e; opacity: 100%;}
+.barRate-4 {width: 30%; height: 18px; background-color: #d9984e; opacity: 80%;}
+.barRate-3 {width: 10%; height: 18px; background-color: #d9984e; opacity: 60%;}
+.barRate-2 {width: 4%; height: 18px; background-color: #d9984e; opacity: 40%;}
+.barRate-1 {width: 15%; height: 18px; background-color: #d9984e; opacity: 20%;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .sideRate, .middleRate {
+    width: 100%;
+  }
+  .rightRate {
+    display: none;
+  }
+}
+
+.account{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.account2{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+.account3{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+.account4{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.w3-container {
+  background-color: #f0d192;
+}
+
+.time{
+  font-size: 16px;
+}
+
+.box{
+  background-color:white;
+  padding: 20px;
+}
+
+.Heading { grid-area: header; }
+.service {grid-area: main;}
+.service2 {grid-area: main2;}
+.service3 {grid-area: main3;}
+.bar {grid-area: bar;}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'main main main main main main'
+        'main2 main2 main2 main2 main2 main2'
+        'main3 main3 main3 main3 main3 main3'
+        'bar bar bar bar bar bar';
+    grid-gap: 20px;
+    background-color: white;
+    padding: 0px 0px;
+}
+
+.grid-container > div {
+    background-color: rgba(white, 50, 85, 89);
+    text-align: center;
+    padding: 0px 0;
+    font-size: 30px;
+}
+
+</style>
+<body>
+  <!--Product Header-->
+  <div class="containerCover">
+    <img src="product/cover2.png" alt="Cover" width="100%" height="100%">
+    <div class="HeadingProduct">Service & Product</div>
+    <div class="SubHeadingProduct">The best for our customers</div>
+  </div>
+  <!--Delivery tab-->
+  <div class="containerDeliTab">
+    <div class="DeliveryTab">
+      <div class="col-3">
+        <img class="deli" src="product/delivery-truck.png"
+        style="position:absolute; right:88.5%; top:66.25%; width:20px; height:20px; border:none;">
+        <div class="DeliveryText1">990 Baht Free Shipping</div>
+      </div>
+      <div class="col-3">
+        <img class="deli" src="product/package-box.png"
+        style="position:absolute; right:62%; top:66.25%; width:20px; height:20px; border:none;">
+        <div class="DeliveryText2">Free Product Return Fee</div>
+      </div>
+      <div class="col-6">
+        <img class="deli" src="product/guarantee.png"
+        style="position:absolute; right:37%; top:66.25%; width:20px; height:20px; border:none;">
+        <div class="DeliveryText3">Guarantee 100% anthentic products from nature</div>
+      </div>
+    </div>
+    </div>
+
+  <!--Display product pictures-->
+  <h1>Product Detail</h1>
+  <!-- Images used to open the lightbox -->
+  <div class="row">
+      <div class="column">
+      <img src="product/71ikA8tkE+L._SL1500_pixel.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow"
+      style="position:absolute; left:4%; top:83.5%; width:75px; height:75px; border:1px solid #9E9E9E;">
+      </div>
+      <div class="column">
+      <img src="product/71CMsWj6F9L._SL1500_pixel.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow"
+      style="position:absolute; left:4%; top:93.5%; width:75px; height:75px; border:1px solid #9E9E9E;">
+      </div>
+      <div class="column">
+      <img src="product/61CUUBQGPSL._SL1500_pixel.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow"
+      style="position:absolute; left:4%; top:103.5%; width:75px; height:75px; border:1px solid #9E9E9E;">
+      </div>
+  </div>
+  <!-- The Modal/Lightbox -->
+  <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+      <div class="mySlides">
+          <div class="numbertext">1 / 3</div>
+          <img src="product/71ikA8tkE+L._SL1500_front.jpg" style="position:relative; vertical-align: middle;">
+      </div>
+      <div class="mySlides">
+          <div class="numbertext">2 / 3</div>
+          <img src="product/71CMsWj6F9L._SL1500_back.jpg" style="position:relative; vertical-align: middle;">
+      </div>
+      <div class="mySlides">
+          <div class="numbertext">3 / 3</div>
+          <img src="product/61CUUBQGPSL._SL1500_side.jpg" style="position:relative; vertical-align: middle;">
+      </div>
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <!-- Caption text -->
+      <div class="caption-container">
+          <p id="caption"></p>
+      </div>
+      <!-- Thumbnail image controls -->
+      <div class="column2">
+          <img class="demo" src="product/71ikA8tkE+L._SL1500_pixel.jpg" onclick="currentSlide(1)" alt="Front"
+          style="right:80%; width:50%; height:50%;">
+      </div>
+  
+      <div class="column2">
+          <img class="demo" src="product/71CMsWj6F9L._SL1500_pixel.jpg" onclick="currentSlide(2)" alt="Back"
+          style="right:60%; width:50%; height:50%;">
+      </div>
+  
+      <div class="column2">
+          <img class="demo" src="product/61CUUBQGPSL._SL1500_pixel.jpg" onclick="currentSlide(3)" alt="Side"
+          style="right:40%; width:50%; height:50%;">
+      </div>
+      </div>
+  </div>
+
+  <!--Zoom picture-->
+  <div class="img-zoom-container">
+    <img id="myimage" src="product/71ikA8tkE+L._SL1500_pixel.jpg" width="500" height="500" alt=" ZoomPic"
+    style="position:absolute; left:10%; top:50%;">
+    <button onclick="myFunction()" class="btnZoom"><i class="fa fa-search"></i>&nbsp;&nbsp;Zoom</button>
+    <div id="myresult" class="img-zoom-result" ></div>
+  </div>
+
+  <!--Product information-->
+  <div class="row">
+    <div class="column3">
+    </div>
+    <div class="column3">
+      <h2>Hempz, Hempz blushing grapefruit & raspberry creme color preserving herbal shampoo</h2>
+      <!--Star Rating-->
+      <div id="star">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <!-- Trigger/Open The Popup -->
+        <button id="myBtnpopup"><i class="fa fa-chevron-down"></i></button>
+      </div>
+      
+      <!-- The Popup -->
+      <div id="myModalPopup" class="modalPopup">
+        <!-- Popup content -->
+        <div class="modal-content-Popup">
+          <span class="closePopup">&times;</span>
+          <span class="headingRate">User Rating</span>
+          <span class="fa fa-star checkedRate"></span>
+          <span class="fa fa-star checkedRate"></span>
+          <span class="fa fa-star checkedRate"></span>
+          <span class="fa fa-star checkedRate"></span>
+          <span class="fa fa-star"></span>
+          <p>4.1 average based on 254 reviews.</p>
+          <hr style="border:3px solid #f1f1f1">
+          <div class="rowRate">
+            <div class="sideRate">
+                <div>5 star</div>
+            </div>
+            <div class="middleRate">
+                <div class="bar-containerRate">
+                <div class="barRate-5"></div>
+                </div>
+            </div>
+            <div class="sideRate rightRate">
+                <div>150</div>
+            </div>
+            <div class="sideRate">
+                <div>4 star</div>
+            </div>
+            <div class="middleRate">
+                <div class="bar-containerRate">
+                <div class="barRate-4"></div>
+                </div>
+            </div>
+            <div class="sideRate rightRate">
+                <div>63</div>
+            </div>
+            <div class="sideRate">
+                <div>3 star</div>
+            </div>
+            <div class="middleRate">
+                <div class="bar-containerRate">
+                <div class="barRate-3"></div>
+                </div>
+            </div>
+            <div class="sideRate rightRate">
+                <div>15</div>
+            </div>
+            <div class="sideRate">
+                <div>2 star</div>
+            </div>
+            <div class="middleRate">
+                <div class="bar-containerRate">
+                <div class="barRate-2"></div>
+                </div>
+            </div>
+            <div class="sideRate rightRate">
+                <div>6</div>
+            </div>
+            <div class="sideRate">
+                <div>1 star</div>
+            </div>
+            <div class="middleRate">
+                <div class="bar-containerRate">
+                <div class="barRate-1"></div>
+                </div>
+            </div>
+            <div class="sideRate rightRate">
+                <div>20</div>
+            </div>
+          </div>
+          </div>
+      </div>
+      <br>
+      <hr style="height:2px; width:85%; border-width:0; color:#f0d192; background-color:#f0d192; float: left;">
+      <br>
+      <h3>Product size:</h3>
+      <button class="btnsize">9 Fl Oz<br>(Pack of 1)<br>
+        <hr style="height:2px; width:85%; border-width:0; color:#f0d192; background-color:#f0d192; float: left;">259 Baht</button>
+      <button class="btnsize">33.8 Fl Oz<br>(Pack of 1)<br>
+        <hr style="height:2px; width:85%; border-width:0; color:#f0d192; background-color:#f0d192; float: left;">509 Baht</button>
+      <br><br>
+      <hr style="height:2px; width:85%; border-width:0; color:#f0d192; background-color:#f0d192; float: left;">
+      <!--Product detail-->
+      <br><br>
+      <button type="button" class="collapsible">Product detail</button>
+      <div class="content">
+        <table class="DetailTable">
+          <tr>
+            <th>Brand</th>
+            <td>Hempz</td>
+          </tr>
+          <tr>
+            <th>Scent</th>
+            <td>Grapefruit</td>
+          </tr>
+          <tr>
+            <th>Hair type</th>
+            <td>Color treated</td>
+          </tr>
+        </table>
+      </div>
+      <!--Product Description-->
+      <button type="button" class="collapsible">About this item</button>
+      <div class="content">
+        <p>• Helps to extend the life of color treated hair<br>• Helps maintain and preserve color vibrancy and tone
+          <br>• Gentle cleansing with no harsh sulfates</p>
+      </div>
+      <button class="btnAddtoCart"><i class="fa fa-cart-plus"></i>&nbsp;&nbsp;Add to cart</button>
+      
+  <!--Contact Bar-->
+  <div class="grid-container">
+    <!--bottom bar-->
+    <div class="bar">
+        <div class="w3-container">
+            <div class="row w-75 m-auto">
+                <div class="col  p-3 ">
+                    <div class="account">
+                        <img src="tab/ig.png" alt="Cover"
+                            style="width:35px; height:35px; color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                            somsisalon.official
+                    </div>
+
+                </div>
+                <div class="col  p-3 ">
+                    <div class="account2">
+                        <img src="tab/fblogo.png" alt="Cover"
+                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                        somsisalon.official
+                    </div>
+                </div>
+
+                <div class="col p-3 ">
+                    <div class="account3">
+                        <img src="tab/twlogo.png" alt="Cover"
+                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                        somsisalon.official
+                    </div>
+                </div>
+                <div class="col  p-3 ">
+                    <div class="account4">
+                        <img src="tab/telogo.png" alt="Cover"
+                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                        098-6149999
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3 text-center ">
+                        <div class="time">WE ARE OPEN FORM WED-SUN 10.30-19.30 PM.</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+  // Open the Modal
+  function openModal() {
+    document.getElementById("myModal").style.display = "block";
+  }
+  
+  // Close the Modal
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+  
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+
+  // Zoom picture
+  function imageZoom(imgID, resultID) {
+    var img, lens, result, cx, cy;
+    img = document.getElementById(imgID);
+    result = document.getElementById(resultID);
+    /* Create lens: */
+    lens = document.createElement("DIV");
+    lens.setAttribute("class", "img-zoom-lens");
+    /* Insert lens: */
+    img.parentElement.insertBefore(lens, img);
+    /* Calculate the ratio between result DIV and lens: */
+    cx = result.offsetWidth / lens.offsetWidth;
+    cy = result.offsetHeight / lens.offsetHeight;
+    /* Set background properties for the result DIV */
+    result.style.backgroundImage = "url('" + img.src + "')";
+    result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+    /* Execute a function when someone moves the cursor over the image, or the lens: */
+    lens.addEventListener("mousemove", moveLens);
+    img.addEventListener("mousemove", moveLens);
+    /* And also for touch screens: */
+    lens.addEventListener("touchmove", moveLens);
+    img.addEventListener("touchmove", moveLens);
+    function moveLens(e) {
+      var pos, x, y;
+      /* Prevent any other actions that may occur when moving over the image */
+      e.preventDefault();
+      /* Get the cursor's x and y positions: */
+      pos = getCursorPos(e);
+      /* Calculate the position of the lens: */
+      x = pos.x - (lens.offsetWidth / 2);
+      y = pos.y - (lens.offsetHeight / 2);
+      /* Prevent the lens from being positioned outside the image: */
+      if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+      if (x < 0) {x = 0;}
+      if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+      if (y < 0) {y = 0;}
+      /* Set the position of the lens: */
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+      /* Display what the lens "sees": */
+      result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+    }
+    function getCursorPos(e) {
+      var a, x = 0, y = 0;
+      e = e || window.event;
+      /* Get the x and y positions of the image: */
+      a = img.getBoundingClientRect();
+      /* Calculate the cursor's x and y coordinates, relative to the image: */
+      x = e.pageX - a.left;
+      y = e.pageY - a.top;
+      /* Consider any page scrolling: */
+      x = x - window.pageXOffset;
+      y = y - window.pageYOffset;
+      return {x : x, y : y};
+    }
+  }
+  imageZoom("myimage", "myresult");
+
+  // Toggle Zoom picture
+  function myFunction() {
+  var x = document.getElementById("myresult");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+  //Collapsible
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+
+
+  // modal Rating
+  var modalPopup = document.getElementById("myModalPopup");
+  // Get the button that opens the modal
+  var btnPopup = document.getElementById("myBtnpopup");
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closePopup")[0];
+  // When the user clicks on the button, open the modal
+  btnPopup.onclick = function() {
+    modalPopup.style.display = "block";
+  }
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modalPopup.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modalPopup) {
+      modalPopup.style.display = "none";
+    }
+  }
+
+
+</script>
+

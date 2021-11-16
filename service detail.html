@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="/SomSiSalon/static/CSS/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+.containerCover {
+  display:grid;
+  grid-template-columns: 100%;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.containerDeliTab{
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 2fr;
+  grid-column-gap: 1em;
+  background-color: #F0D192;
+}
+
+.HeadingProduct {
+  position: absolute;
+  top: 40%;
+  left: 75%;
+  font-size: 3vw;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.SubHeadingProduct {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  font-size: 2vw;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+img.deli {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 2fr;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.DeliveryTab {
+  background-color: #f0d192;
+  width: 100%;
+  padding: 4vh;
+  color: black;
+}
+
+.DeliveryText1{
+  position: absolute;
+  top: 66.25%;
+  right: 75%;
+  font-size: 1.3vw;
+  width: 200px;
+  height: 100px;
+}
+
+.DeliveryText2{
+  position: absolute;
+  top: 66.25%;
+  right: 48%;
+  font-size: 1.3vw;
+  width: 200px;
+  height: 100px;
+}
+
+.DeliveryText3{
+  position: absolute;
+  top: 66.25%;
+  right: 10%;
+  font-size: 1.3vw;
+  width: 400px;
+  height: 100px;
+}
+
+.pic-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  vertical-align: middle;
+  padding: 0.5em;
+}
+
+.btn {
+  position: relative;
+  top: 175%;
+  left: 46%;
+  background-color: #d9984e; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  font-style: Frank Ruhl Libre;
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: #AD793E;
+}
+
+.account{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.account2{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+.account3{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+.account4{
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+.w3-container {
+  background-color: #f0d192;
+}
+
+.time{
+  font-size: 16px;
+}
+
+.box{
+  background-color:white;
+  padding: 20px;
+}
+
+.Heading { grid-area: header; }
+.service {grid-area: main;}
+.service2 {grid-area: main2;}
+.service3 {grid-area: main3;}
+.bar {grid-area: bar;}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'main main main main main main'
+        'main2 main2 main2 main2 main2 main2'
+        'main3 main3 main3 main3 main3 main3'
+        'bar bar bar bar bar bar';
+    grid-gap: 20px;
+    background-color: white;
+    padding: 0px 0px;
+}
+
+.grid-container > div {
+    background-color: rgba(white, 50, 85, 89);
+    text-align: center;
+    padding: 0px 0;
+    font-size: 30px;
+}
+
+</style>
+<body>
+  <!--Product Header-->
+  <div class="containerCover">
+    <img src="product/cover2.png" alt="Cover" width="100%" height="100%">
+    <div class="HeadingProduct">Service & Product</div>
+    <div class="SubHeadingProduct">The best for our customers</div>
+  </div>
+  <!--Delivery tab-->
+  <div class="containerDeliTab">
+    <div class="DeliveryTab">
+      <div class="col-3">
+        <img class="deli" src="product/delivery-truck.png"
+        style="position:absolute; right:88.5%; top:66.25%; width:20px; height:20px; border:none;">
+        <div class="DeliveryText1">990 Baht Free Shipping</div>
+      </div>
+      <div class="col-3">
+        <img class="deli" src="product/package-box.png"
+        style="position:absolute; right:62%; top:66.25%; width:20px; height:20px; border:none;">
+        <div class="DeliveryText2">Free Product Return Fee</div>
+      </div>
+      <div class="col-6">
+        <img class="deli" src="product/guarantee.png"
+        style="position:absolute; right:37%; top:66.25%; width:20px; height:20px; border:none;">
+        <div class="DeliveryText3">Guarantee 100% anthentic products from nature</div>
+      </div>
+    </div>
+    </div>
+
+  <h1>Service Detail</h1>
+  <h2>Haircut</h2>
+  <!--Show images-->
+  <div class="pic-container">
+    <div>
+      <img class="deli" src="product/Hole perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+    <div>
+      <img class="deli" src="product/easy perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+    <div>
+      <img class="deli" src="product/Bonnie perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+    <div>
+      <img class="deli" src="product/Wind perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+    <div>
+      <img class="deli" src="product/grace perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+    <div>
+      <img class="deli" src="product/Hung perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+    <div>
+      <img class="deli" src="product/Elisabeth perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+    <div>
+      <img class="deli" src="product/Flower perm.jpg"
+      style="width:200px; height:300px;">
+    </div>
+  </div>
+  <!--button for appointment-->
+  <button class="btn"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+
+  <div class="grid-container">
+    <!--bottom bar-->
+    <div class="bar">
+        <div class="w3-container">
+            <div class="row w-75 m-auto">
+                <div class="col  p-3 ">
+                    <div class="account">
+                        <img src="../static/IMG/ig.png" alt="Cover"
+                            style="width:35px; height:35px; color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                        somsisalon.official
+                    </div>
+
+                </div>
+                <div class="col  p-3 ">
+                    <div class="account2">
+                        <img src="../static/IMG/fblogo.png" alt="Cover"
+                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                        somsisalon.official
+                    </div>
+                </div>
+
+                <div class="col p-3 ">
+                    <div class="account3">
+                        <img src="../static/IMG/twlogo.png" alt="Cover"
+                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                        somsisalon.official
+                    </div>
+                </div>
+                <div class="col  p-3 ">
+                    <div class="account4">
+                        <img src="../static/IMG/telogo.png" alt="Cover"
+                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
+                        098-6149999
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3 text-center ">
+                        <div class="time">WE ARE OPEN FORM WED-SUN 10.30-19.30 PM.</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  
+</body>
+</html>
