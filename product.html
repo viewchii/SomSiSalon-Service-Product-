@@ -5,14 +5,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Service & Product | SomSi Salon</title>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="/SomSiSalon/static/CSS/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <style>
+body {
+  font-family: FrankRuhlLibre;
+  src: url(../fonts/FrankRuhlLibre-Regular.ttf);
+}
+
+@font-face {
+  font-family: Cinzel;
+  src: url(../fonts/Cinzel-Regular.ttf);
+}
+@font-face {
+  font-family: FrankRuhlLibre;
+  src: url(../fonts/FrankRuhlLibre-Regular.ttf);
+}
+
+/* Body */
+body {
+  position: relative;
+  background: #ffffff;
+}
+
+/* Header */
+.HeaderComponent {
+  position: absolute;
+  width: 1920px;
+  height: 168.23px;
+  left: 0px;
+  top: 0px;
+}
+
+/* Logo */
+.Logo {
+  font-family: Cinzel;
+  color: #47372e;
+}
+
+/* Nav Bar */
+.NavBarComponent {
+  position: absolute;
+  width: 1920px;
+  height: 101.23px;
+  left: 0px;
+  top: 67px;
+}
+
+.NavbarBG {
+  background: #5c9aa1;
+}
+
+.nav-font-color {
+  font-family: FrankRuhlLibre;
+  font-size: 18px;
+  color: #ffffff !important;
+}
+
 .containerCover {
   display:grid;
   grid-template-columns: 100%;
@@ -23,8 +79,10 @@
 
 .containerDeliTab{
   display: grid;
-  grid-template-columns: 1.5fr 1.5fr 2fr;
+  grid-template-columns: auto auto auto;
   grid-column-gap: 1em;
+  grid-auto-rows: auto;
+  padding: 1.25em;
   background-color: #F0D192;
 }
 
@@ -52,13 +110,6 @@ img.deli {
   text-align: center;
   vertical-align: middle;
   max-width: 100%;
-}
-
-.DeliveryTab {
-  background-color: #f0d192;
-  width: 100%;
-  padding: 4vh;
-  color: black;
 }
 
 .DeliveryText1{
@@ -154,7 +205,7 @@ img.deli {
 /* Container for image text */
 .caption-container {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
   text-align: center;
   font-size: 20px;
   background-color: #222;
@@ -164,15 +215,13 @@ img.deli {
 
 .rowThumbnail:after {
   content: "";
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  display: table;
   clear: both;
+  width: 100%;
 }
 
 /* Six columns side by side */
 .column {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
   float: left;
   width: 16.66%;
 }
@@ -187,10 +236,15 @@ img.deli {
   opacity: 1;
 }
 
+.containerBtn{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 /* Style buttons */
 .btnDetSer {
   position: absolute;
-  top: 51%;
+  top: 46%;
   left: 4%;
   background-color: #d9984e; /* Yellow background */
   border: none; /* Remove borders */
@@ -203,7 +257,7 @@ img.deli {
 
 .btnAppointSer {
   position: absolute;
-  top: 51%;
+  top: 46%;
   left: 87%;
   background-color: #d9984e; /* Yellow background */
   border: none; /* Remove borders */
@@ -224,6 +278,7 @@ img.deli {
   max-width: 300px;
   margin: auto;
   text-align: center;
+  vertical-align: middle;
   font-style: Frank Ruhl Libre;
   
 }
@@ -254,7 +309,7 @@ img.deli {
 .product-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 10px;
+  padding: 1em;
 }
 
 .account{
@@ -296,31 +351,76 @@ img.deli {
 .service {grid-area: main;}
 .service2 {grid-area: main2;}
 .service3 {grid-area: main3;}
-.bar {grid-area: bar;}
+.bar{grid-area: bar;}
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header header'
+                'main main main main main main'
+                'main2 main2 main2 main2 main2 main2'
+                'main3 main3 main3 main3 main3 main3'
+                'bar bar bar bar bar bar';
+            grid-gap: 20px;
+            background-color: white;
+            padding: 0px 0px;
+        }
 
-.grid-container {
-    display: grid;
-    grid-template-areas:
-        'header header header header header header'
-        'main main main main main main'
-        'main2 main2 main2 main2 main2 main2'
-        'main3 main3 main3 main3 main3 main3'
-        'bar bar bar bar bar bar';
-    grid-gap: 20px;
-    background-color: white;
-    padding: 0px 0px;
-}
-
-.grid-container > div {
-    background-color: rgba(white, 50, 85, 89);
-    text-align: center;
-    padding: 0px 0;
-    font-size: 30px;
-}
+        .grid-container > div {
+            background-color: rgba(white, 50, 85, 89);
+            text-align: center;
+            padding: 0px 0;
+            font-size: 30px;
+        }
 
 </style>
 
 <body>
+  <!-- SomSi Logo -->
+  <div class="text-center">
+    <h1 class="Logo mb-0">SOMSI SALON</h1>
+  </div>
+
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light NavbarBG">
+      <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav m-auto">
+                  <li class="nav-item mx-2">
+                      <a class="nav-link nav-font-color" href="#">Home</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                      <a class="nav-link nav-font-color" href="#">About us</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                      <a class="nav-link nav-font-color" href="#">Product & Service</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                      <a class="nav-link nav-font-color" href="#">Appointment</a>
+                  </li>
+              </ul>
+
+          </div>
+          <div class=" position-absolute end-0">
+              <ul class="navbar-nav flex-row p-md-5">
+                  <li class="nav-item mx-2">
+                      <span class="material-icons-outlined align-middle text-white">
+                          shopping_cart
+                      </span>
+                  </li>
+                  <li class="nav-item mx-2">
+                      <span class="material-icons-outlined align-middle text-white">person</span>
+                  </li>
+              </ul>
+          </div>
+
+      </div>
+  </nav>
+
   <!--Product Header-->
   <div class="containerCover">
     <img src="product/cover2.png" alt="Cover" width="100%" height="100%">
@@ -329,24 +429,28 @@ img.deli {
   </div>
   <!--Delivery tab-->
   <div class="containerDeliTab">
-    <div class="DeliveryTab">
-      <div class="col-3">
+    <ul class="deli-tab m-auto">
+      <div vertical-align="middle">
         <img class="deli" src="product/delivery-truck.png"
-        style="position:absolute; right:88.5%; top:66.25%; width:20px; height:20px; border:none;">
-        <div class="DeliveryText1">990 Baht Free Shipping</div>
+        style="width: 1.5em; height: 1.5em; border:none;">
+        990 Baht Free Shipping
       </div>
-      <div class="col-3">
+    </ul>
+    <ul class="deli-tab m-auto">
+      <div vertical-align="middle">
         <img class="deli" src="product/package-box.png"
-        style="position:absolute; right:62%; top:66.25%; width:20px; height:20px; border:none;">
-        <div class="DeliveryText2">Free Product Return Fee</div>
+        style="width: 1.5em; height: 1.5em; border:none;">
+        Free Product Return Fee
       </div>
-      <div class="col-6">
+    </ul>
+    <ul class="deli-tab m-auto">
+      <div vertical-align="middle">
         <img class="deli" src="product/guarantee.png"
-        style="position:absolute; right:37%; top:66.25%; width:20px; height:20px; border:none;">
-        <div class="DeliveryText3">Guarantee 100% anthentic products from nature</div>
+        style="width: 1.5em; height: 1.5em; border:none;">
+        Guarantee 100% anthentic products from nature
       </div>
-    </div>
-    </div>
+    </ul>
+  </div>
 
   <!--Service-->
   <h1>Service</h1>
@@ -355,72 +459,84 @@ img.deli {
     <!-- Full-width images with number text -->
     <div class="mySlides">
       <div class="numbertext">1 / 6</div>
-        <img src="product/istockphoto-1252461120-170667a3.jpg" style="width:auto; height:auto">
-        <a href="service detail.html"><button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button></a>
-        <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        <img src="product/istockphoto-1252461120-170667a3.jpg" style="width:100%;">
+        <a href="service detail.html"><button class="btnDetSer m-auto"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button></a>
+        <button class="btnAppointSer"><i class="fa fa-calendar m-auto"></i>&nbsp;&nbsp;Appointment</button>
     </div>
     <div class="mySlides">
       <div class="numbertext">2 / 6</div>
-        <img src="product/hairtreatment3.jpg" style="width:auto; height:auto">
-        <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
-        <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        <img src="product/hairtreatment3.jpg" style="width:100%;">
+        <div class="containerBtn">
+          <button class="btnDetSer"><i class="fa fa-info-circle m-auto"></i>&nbsp;&nbsp;Detail</button>
+          <button class="btnAppointSer"><i class="fa fa-calendar m-auto"></i>&nbsp;&nbsp;Appointment</button>
+        </div>
     </div>
     <div class="mySlides">
       <div class="numbertext">3 / 6</div>
-        <img src="product/9-pink-hairstyle-with-deep-brown-roots-B1bknNGBa8X3.jpg" style="width:auto; height:auto">
-        <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
-        <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        <img src="product/9-pink-hairstyle-with-deep-brown-roots-B1bknNGBa8X3.jpg" style="width:100%;">
+        <div class="containerBtn">
+          <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
+          <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        </div>
     </div>
     <div class="mySlides">
       <div class="numbertext">4 / 6</div>
-        <img src="product/Clip-in-Hair-Extensions-Melbourne3.jpg" style="width:auto; height:auto">
-        <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
-        <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        <img src="product/Clip-in-Hair-Extensions-Melbourne3.jpg" style="width:100%;">
+        <div class="containerBtn">
+          <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
+          <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        </div>
     </div>
     <div class="mySlides">
       <div class="numbertext">5 / 6</div>
-        <img src="product/pros-and-cons-permanent-hair-streightening3.jpg" style="width:auto; height:auto">
-        <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
-        <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        <img src="product/pros-and-cons-permanent-hair-streightening3.jpg" style="width:100%;">
+        <div class="containerBtn">
+          <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
+          <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        </div>
     </div>
     <div class="mySlides">
       <div class="numbertext">6 / 6</div>
-        <img src="product/hairperm3.jpg" style="width:autox; height:auto">
-        <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
-        <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        <img src="product/hairperm3.jpg" style="width:100%;">
+        <div class="containerBtn">
+          <button class="btnDetSer"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;Detail</button>
+          <button class="btnAppointSer"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Appointment</button>
+        </div>
     </div>
+
+    <div class="caption-container">
+      <br>
+      <p id="caption"></p>
+    </div>
+    
     <!-- Next and previous buttons -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    <!-- Image text -->
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
     <!-- Thumbnail images -->
     <div class="rowThumbnail">
-      <div class="column">
-        <img class="demo cursor" src="product/istockphoto-1252461120-170667a.jpg"
-        style="width:15.7em; height:200px" onclick="currentSlide(1)" alt="Haircut - Price start at 499 Baht">
+      <div class="column m-auto">
+        <img class="demo cursor" src="product/istockphoto-1252461120-170667a_th.jpg"
+        style="width: 100%;" onclick="currentSlide(1)" alt="Haircut - Price start at 499 Baht">
       </div>
-      <div class="column">
-        <img class="demo cursor" src="product/hairtreatment.jpg"
-        style="width:15.7em; height:200px" onclick="currentSlide(2)" alt="Hair Treatment - Price start at 299 Baht">
+      <div class="column m-auto">
+        <img class="demo cursor" src="product/hairtreatment_th.jpg"
+        style="width: 100%;" onclick="currentSlide(2)" alt="Hair Treatment - Price start at 299 Baht">
       </div>
-      <div class="column">
-        <img class="demo cursor" src="product/9-pink-hairstyle-with-deep-brown-roots-B1bknNGBa8X2.jpg"
-        style="width:15.7em; height:200px" onclick="currentSlide(3)" alt="Hair Color - Price start at 1,500 Baht">
+      <div class="column m-auto">
+        <img class="demo cursor" src="product/9-pink-hairstyle-with-deep-brown-roots-B1bknNGBa8X_th.jpg"
+        style="width: 100%;" onclick="currentSlide(3)" alt="Hair Color - Price start at 1,500 Baht">
       </div>
-      <div class="column">
-        <img class="demo cursor" src="product/Clip-in-Hair-Extensions-Melbourne.jpg"
-        style="width:15.7em; height:200px" onclick="currentSlide(4)" alt="Hair Extension - Price start at 9,000 Baht">
+      <div class="column m-auto">
+        <img class="demo cursor" src="product/Clip-in-Hair-Extensions-Melbourne_th.jpg"
+        style="width: 100%;" onclick="currentSlide(4)" alt="Hair Extension - Price start at 9,000 Baht">
       </div>
-      <div class="column">
-        <img class="demo cursor" src="product/pros-and-cons-permanent-hair-streightening.jpg"
-        style="width:15.7em; height:200px" onclick="currentSlide(5)" alt="Hair Streightening - Price start at 2,999 Baht">
+      <div class="column m-auto">
+        <img class="demo cursor" src="product/pros-and-cons-permanent-hair-streightening_th.jpg"
+        style="width: 100%;" onclick="currentSlide(5)" alt="Hair Streightening - Price start at 2,999 Baht">
       </div>
-      <div class="column">
-        <img class="demo cursor" src="product/hairperm2.jpg"
-        style="width:15.7em; height:200px" onclick="currentSlide(6)" alt="Hair Perm - Price start at 3,000 Baht">
+      <div class="column m-auto">
+        <img class="demo cursor" src="product/hairperm_th.jpg"
+        style="width: 100%;" onclick="currentSlide(6)" alt="Hair Perm - Price start at 3,000 Baht">
       </div>
     </div>
   </div>
@@ -428,79 +544,76 @@ img.deli {
   <!--Product-->
   <h1>Product</h1>
   <div class="product-grid-container">
-  <div class="card">
-    <br>
-    <img src="product/81zOAvkaLDL._AC_SL1500_pixel.jpg" alt="GlutenShampoo" style="width:120px; height: 120px;">
-    <h4>Gluten-Free Savonnerie Shampoo</h4>
-    <p class="price">509 Baht</p>
-    <p>✓ Hypoallergenic<br>✓ Biodegradable<br>✓ Made in America</p>
-    <p><button>Read our reviews</button></p>
-    <p><button>Add to Cart</button></p>
-  </div>
-  <div class="card">
-    <br>
-    <img src="product/51DeHqkaF6L._SL1270_pixel.jpg" alt="NourishingShampoo" style="width:120px; height: 120px;">
-    <h4>Nourishing Shampoo by Loma</h4>
-    <p class="price">635 Baht</p>
-    <p>✓ Moisturizing<br>✓ Protein reduces breakage<br>✓ Safe for color-treated hair</p>
-    <p><button>Read our reviews</button></p>
-    <p><button>Add to Cart</button></p>
-  </div>
-  <div class="card">
-    <br>
-    <img src="product/71ikA8tkE+L._SL1500_pixel.jpg" alt="Hempz" style="width:120px; height: 120px;">
-    <a href="product detail.html"><h4>Hempz, Hempz blushing grapefruit<br>& raspberry creme color ...</h4></a>
-    <p class="price">249 Baht</p>
-    <p>✓ Moisturizing<br>✓ Ginger and chamomile for scalp<br>✓ Safe for color-treated hair</p>
-    <p><button>Read our reviews</button></p>
-    <p><button>Add to Cart</button></p>
-  </div>
-  </div>
-
-  <div class="grid-container">
-    <!--bottom bar-->
-    <div class="bar">
-        <div class="w3-container">
-            <div class="row w-75 m-auto">
-                <div class="col  p-3 ">
-                    <div class="account">
-                        <img src="/SomSiSalon/templates/product/tab/ig.png" alt="Cover"
-                            style="width:35px; height:35px; color :#F0D192;text-align: left; margin-bottom: 0em; ">
-                        somsisalon.official
-                    </div>
-
-                </div>
-                <div class="col  p-3 ">
-                    <div class="account2">
-                        <img src="/SomSiSalon/templates/product/tab/fblogo.png" alt="Cover"
-                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
-                        somsisalon.official
-                    </div>
-                </div>
-
-                <div class="col p-3 ">
-                    <div class="account3">
-                        <img src="/SomSiSalon/templates/product/tab/twlogo.png" alt="Cover"
-                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
-                        somsisalon.official
-                    </div>
-                </div>
-                <div class="col  p-3 ">
-                    <div class="account4">
-                        <img src="/SomSiSalon/templates/product/tab/telogo.png" alt="Cover"
-                            style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; ">
-                        098-6149999
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 p-3 text-center ">
-                        <div class="time">WE ARE OPEN FORM WED-SUN 10.30-19.30 PM.</div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+    <div class="card">
+      <br>
+      <img src="product/81zOAvkaLDL._AC_SL1500_pixel.jpg" alt="GlutenShampoo" style="margin-left: 5em; width:120px; height: 120px;">
+      <h5><u>Gluten-Free Savonnerie Shampoo</u></h5>
+      <p class="price">509 Baht</p>
+      <p>✓ Hypoallergenic<br>✓ Biodegradable<br>✓ Made in America</p>
+      <p><button><i class="fa fa-cart-plus"></i>&nbsp;&nbsp;Add to cart</button>
     </div>
+    <div class="card">
+      <br>
+      <img src="product/51DeHqkaF6L._SL1270_pixel.jpg" alt="NourishingShampoo" style="margin-left: 4em; width:120px; height: 120px;">
+      <h5><u>Nourishing Shampoo by Loma</u></h5>
+      <p class="price">635 Baht</p>
+      <p>✓ Moisturizing<br>✓ Protein reduces breakage<br>✓ Safe for color-treated hair</p>
+      <p><button><i class="fa fa-cart-plus"></i>&nbsp;&nbsp;Add to cart</button>
+    </div>
+    <div class="card">
+      <br>
+      <img src="product/71ikA8tkE+L._SL1500_pixel.jpg" alt="Hempz" style="margin-left: 5em; width:120px; height: 120px;">
+      <a href="product detail.html"><h5><u>Hempz, Hempz blushing grapefruit<br>& raspberry creme color ...</u></h5></a>
+      <p class="price">249 Baht</p>
+      <p>✓ Moisturizing<br>✓ Ginger and chamomile for scalp<br>✓ Safe for color-treated hair</p>
+      <p><button><i class="fa fa-cart-plus"></i>&nbsp;&nbsp;Add to cart</button>
+    </div>
+  </div>
+
+  <div class="grid-container"><!--bottom bar-->
+    <div class="bar">
+       <div class="w3-container">
+           <div class="row">
+               <div class="col-sm-12 p-3  "></div>
+           </div>
+           <div class="row">
+               <div class="col p-3  "></div>
+               <div class="col p-3  "></div>
+               <div class="col  p-3 "> 
+                   <div class="account">
+                       <img src="tab/ig.png" alt="Cover" style="width:35px; height:35px; color :#F0D192;text-align: left; margin-bottom: 0em; " >
+                       somsisalon.official
+                   </div>
+                   
+               </div>
+               <div class="col  p-3 "> 
+                   <div class="account2">
+                       <img src="tab/fblogo.png" alt="Cover" style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; " >
+                       somsisalon.official
+                   </div>
+               </div>
+               
+               <div class="col p-3 "> 
+                   <div class="account3">
+                       <img src="tab/twlogo.png" alt="Cover" style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; " >
+                       somsisalon.official
+                   </div>
+               </div>
+               <div class="col  p-3 ">            
+                   <div class="account4">
+                       <img src="tab/telogo.png" alt="Cover" style="width:35px; height:35px;color :#F0D192;text-align: left; margin-bottom: 0em; " >
+                       098-6149999
+                   </div>
+               </div>
+               <div class="col p-3  text-white"></div>
+               <div class="time">WE ARE OPEN FROM WED-SUN 10.30-19.30 PM.</div>
+           
+           </div>
+           </div>
+           
+       </div>
+         
+   </div>
 
 </body>
 </html>
